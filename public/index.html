@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Yetric AB Web Components</title>
+    <script>
+        class YetricHeading extends HTMLElement {
+            constructor() {
+                super();
+
+                this.addEventListener('click', () => {
+                    this.style.color = 'red';
+                    setTimeout(() => {
+                        this.style.color = 'blue';
+                    }, 1000);
+                });
+            }
+
+
+            connectedCallback() {
+                this.style.color = 'blue';
+            }
+        }
+
+        customElements.define('y-heading', YetricHeading);
+    </script>
+</head>
+<body>
+    <y-heading>
+        <h1>Yetric AB Web Components</h1>
+    </y-heading>
+</body>
+</html>
